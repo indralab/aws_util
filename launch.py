@@ -37,8 +37,11 @@ def launch(type, ami, project, key, zone, secgroup, volume):
     # Step 1 create the instance
     instances = ec2.create_instances(**args)
     instance = instances[0]
+    print('Instance launch initiated with private IP: %s' %
+          instance.private_ip_address)
 
     if volume:
+        print('Attempting to attach volume %s to instance.' % volume)
         # Step 2 wait for the instance to come online
         time.sleep(30)
         instance.attach_volume(VolumeId=volume, Device='/dev/sdy')
