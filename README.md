@@ -31,7 +31,7 @@ sudo mkfs -t ext4 /dev/nvme1n1
 then make a folder to mount the volume in and mount it as
 ``` 
 sudo mkdir /data
-sodu mount /dev/nvme1n1 /data/
+sudo mount /dev/nvme1n1 /data/
 ```
 Once you have the new disk mounted, it makes sense to chown it to the user as
 ```
