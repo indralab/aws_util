@@ -35,10 +35,10 @@ def launch(type, ami, project, key, zone, secgroup, volume):
         'SecurityGroupIds': [secgroup]
         }
     # Step 1 create the instance
+    print('Instance launch initiated for instance of type %s' % type)
     instances = ec2.create_instances(**args)
     instance = instances[0]
-    print('Instance launch initiated with private IP: %s' %
-          instance.private_ip_address)
+    print('Instance assigned private IP: %s' % instance.private_ip_address)
 
     if volume:
         print('Attempting to attach volume %s to instance.' % volume)
