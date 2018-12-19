@@ -46,6 +46,13 @@ def launch(type, ami, project, key, zone, secgroup, volume):
         time.sleep(30)
         instance.attach_volume(VolumeId=volume, Device='/dev/sdy')
 
+    while instance.public_ip_address is None:
+        instance.reload()
+        print('Waiting to get public IP...')
+        time.sleep(2)
+    print('You should be able to log in as follows')
+    print('ssh -i ~/.ssh/%s.rsa ubuntu@%s' % (key, instance.public_ip_address))
+
     return instance
 
 if __name__ == '__main__':
