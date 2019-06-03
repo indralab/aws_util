@@ -27,7 +27,15 @@ def launch(type, ami, project, key, zone, secgroup, volume):
                 {'Key': 'project',
                  'Value': project}
                 ]
-            }],
+            },
+            {
+             'ResourceType': 'volume',
+             'Tags': [
+                {'Key': 'project',
+                 'Value': project}
+                ]
+            }
+            ],
          'KeyName': key,
          'Placement': {
              'AvailabilityZone': zone,
