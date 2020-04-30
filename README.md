@@ -1,3 +1,6 @@
+Launching an EC2 instance
+=========================
+
 Run this scrpt to launch an EC2 instance.
 
 Example
@@ -36,4 +39,16 @@ sudo mount /dev/nvme1n1 /data/
 Once you have the new disk mounted, it makes sense to chown it to the user as
 ```
 sudo chown ubuntu /data/
+```
+
+Generating a cost report by project tag
+=======================================
+The `get_costs.py` script generates a plot of AWS costs stratified by
+project tag. By default, one week of costs are displayed with a separate line
+for each project. The script assumes that a Slack token is available which
+allows posting the image to a Slack channel.
+
+Usage
+```
+python get_costs.py
 ```
